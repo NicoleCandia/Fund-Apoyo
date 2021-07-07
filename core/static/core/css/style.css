@@ -1,0 +1,82 @@
+#oferta{
+  
+  border: 10px solid #080fef;
+  background-color: #1860e2;
+  margin: 20px;
+  color: white;
+}
+
+
+#botoncircular {
+  width:140px;
+  height:140px;
+}
+
+
+#botonmorado {
+  background-color: #5250cc;
+
+}
+body {
+    background-color: lightblue;
+    padding-bottom: 3rem;
+  }
+/* carrusel 
+-------------------------------------------------- */
+
+/* Margen superior del carrusel */
+.carousel {
+  margin-bottom: 4rem;
+  
+
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* posicionamiento y fondo del carrusel */
+.carousel-item {
+  height: 32rem;
+  background-color: rgb(165, 215, 228);
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+
+/* Productos index
+-------------------------------------------------- */
+
+ centrar las columnas
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+#Imgsize {
+  width: 350px;
+  height: 380px;
+}
+
+#centrar {
+  text-align:center;
+}
+
+#ImgContacto{
+  width: 550px;
+  height: 680px;
+}
+
