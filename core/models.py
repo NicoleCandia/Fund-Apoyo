@@ -29,6 +29,21 @@ class Terapia(models.Model):
     def __str__(self):
         return self.NombreTerapia
 
+class TipoMovPaciente(models.Model):
+    idTipoMovPaciente = models.IntegerField(primary_key=True, verbose_name="Id del movimiento")
+    TipoMovPaciente= models.CharField(max_length=750, verbose_name="Nombre MovPaciente")
+    def __str__(self):
+        return self.TipoMovPaciente
+
+
+class movPaciente(models.Model):
+    idTerapia = models.IntegerField(primary_key=True, verbose_name="Id del movimiento")
+    FechaMov= models.CharField(max_length=750, verbose_name="Fecha movimiento")
+    HoraMov= models.CharField(max_length=750, verbose_name="Hora movimiento")
+    Destino= models.CharField(max_length=750, verbose_name="Destino movimiento")
+    TipoMovPaciente = models.ForeignKey(TipoMovPaciente, on_delete=models.CASCADE)
+
+
 class Ficha(models.Model):
     Rut = models.ForeignKey(Residente, on_delete=models.CASCADE)
     Observaciones= models.CharField(max_length=750, verbose_name="Observaciones paciente")
@@ -37,6 +52,33 @@ class Ficha(models.Model):
     Terapia = models.ForeignKey(Terapia, on_delete=models.CASCADE)
     def __str__(self):
         return self.Observaciones
+
+class TipoProducto(models.Model):
+    idTipoProducto = models.IntegerField(primary_key=True, verbose_name="Id tipo producto")
+    NombreTipoProducto= models.CharField(max_length=750, verbose_name="Nombre tipo producto")
+    def __str__(self):
+        return self.NombreTipoProducto
+
+class Producto(models.Model):
+    idProducto = models.IntegerField(primary_key=True, verbose_name="Id producto")
+    NombreProducto= models.CharField(max_length=750, verbose_name="Nombre producto")
+    TipoProducto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.NombreProducto
+
+
+class Compra(models.Model):
+    idCompra = models.IntegerField(primary_key=True, verbose_name="Id compra")
+    PrecioCompra= models.CharField(max_length=750, verbose_name="Precio Compra")
+    Producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+
+
+
+
+
+
+
+
 
 
 # Crear clases necesarias para el stock y movimientos residentes.
