@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Fundación Apoyo</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'core/css/style.css'%}" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light" style=>
+            <div class="container">
+              <a class="navbar-brand" href="#">Menú</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      Ingreso
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{% url 'personal' %}">Ingreso Personal</a></li>
+                      <li><a class="dropdown-item" href="{% url 'administrador' %}">Ingreso Administrador</a></li>
+                      <li><a class="dropdown-item" href="{% url 'supervisor' %}">Ingreso Supervisor</a></li>
+                    </ul>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+    </header>
+    <div id="centrar"><img src="{% static 'core/img/asilo.png'%}" alt="Generic placeholder image" width="540"
+                        height="240"></div>
+                    <h1 id="centrar">¿Quienes Somos?</h1>
+                    <p id="centrar">
+                        Cocina rica, hecha con mucha ilusión, para gente que le gusta comer y disfrutar cada bocado de
+                        la vida.
+                        <br />
+                        Hacemos todo de forma casera y procuramos poner siempre un toque personal en nuestro trabajo
+                        diario.
+                        <br />
+                        Queremos ofrecerte el marco perfecto para que estés a gusto, para que puedas conversar mientras
+                        disfrutas con todos tus sentidos la experiencia que vives.
+                        Quienes formamos el equipo de este espacio intentamos en todo momento escuchar lo que quieres
+                        para adaptarnos a lo que buscas.
+                        <br />
+                        Nuestra historia se remonta hace 5 años desde que quisimos tener un servicio de comida donde la
+                        gente pudiera encontrar lo cercano de lo artesanal y el calor que ofrece
+                        el compartir una rica tabla. Tenemos un equipo que constantemente está innovando en las
+                        creaciones de las tablas y están ofreciendo las mejores combinaciones de sabores para
+                        quien desee visitarnos.
+                    </p>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
