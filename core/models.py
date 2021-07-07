@@ -1,13 +1,5 @@
 from django.db import models
 
-# Create your models here.
-class Pais(models.Model):
-    idPais = models.IntegerField(primary_key=True, verbose_name="Id de Pais")
-    nombrePais = models.CharField(max_length=50, verbose_name="Nombre del Pais")
-    class Meta:
-        verbose_name_plural = "Países"
-    def __str__(self):
-        return self.nombrePais
 #Modelo para Residente
 class Residente(models.Model):
     Rut = models.CharField(max_length=12, primary_key=True, verbose_name="Rut Residente")
@@ -29,25 +21,26 @@ class Terapia(models.Model):
     def __str__(self):
         return self.NombreTerapia
 
-class TipoMovPaciente(models.Model):
-    idTipoMovPaciente = models.IntegerField(primary_key=True, verbose_name="Id del movimiento")
-    TipoMovPaciente= models.CharField(max_length=750, verbose_name="Nombre MovPaciente")
+class TipoMovResidente(models.Model):
+    idTipoMovResidente = models.IntegerField(primary_key=True, verbose_name="Id del movimiento")
+    TipoMovResidente= models.CharField(max_length=750, verbose_name="Nombre MovResidente")
     def __str__(self):
-        return self.TipoMovPaciente
+        return self.TipoMovResidente
 
 
-class movPaciente(models.Model):
-    idTerapia = models.IntegerField(primary_key=True, verbose_name="Id del movimiento")
+class MovResidente(models.Model):
+    idMov = models.IntegerField(primary_key=True, verbose_name="Id del movimiento")
     FechaMov= models.CharField(max_length=750, verbose_name="Fecha movimiento")
     HoraMov= models.CharField(max_length=750, verbose_name="Hora movimiento")
     Destino= models.CharField(max_length=750, verbose_name="Destino movimiento")
-    TipoMovPaciente = models.ForeignKey(TipoMovPaciente, on_delete=models.CASCADE)
+    TipoMovResidente = models.ForeignKey(TipoMovResidente, on_delete=models.CASCADE)
+    Rut = models.ForeignKey(Residente, on_delete=models.CASCADE)
 
 
 class Ficha(models.Model):
     Rut = models.ForeignKey(Residente, on_delete=models.CASCADE)
-    Observaciones= models.CharField(max_length=750, verbose_name="Observaciones paciente")
-    Medicamentos= models.CharField(max_length=450, verbose_name="Medicación del paciente")
+    Observaciones= models.CharField(max_length=750, verbose_name="Observaciones residente")
+    Medicamentos= models.CharField(max_length=450, verbose_name="Medicación del residente")
     Cuidados= models.CharField(max_length=750, verbose_name="Cuidados especiales")
     Terapia = models.ForeignKey(Terapia, on_delete=models.CASCADE)
     def __str__(self):
@@ -66,35 +59,10 @@ class Producto(models.Model):
     def __str__(self):
         return self.NombreProducto
 
-
 class Compra(models.Model):
     idCompra = models.IntegerField(primary_key=True, verbose_name="Id compra")
     PrecioCompra= models.CharField(max_length=750, verbose_name="Precio Compra")
     Producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-
-
-
-
-
-
-
-
-
-
-# Crear clases necesarias para el stock y movimientos residentes.
-
-
-
-
-
-
-
-
-
+    TipoProducto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE)
     
-
-
-
-    
-
 
